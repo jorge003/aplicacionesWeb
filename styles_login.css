@@ -31,3 +31,13 @@ h3#ingreso{
 .input-group-addon{
 	color: #DB202C;
 }
+
+input#iniciar-sesion{
+	color: white;
+	background-color: #DB202C;
+	width: 120px;
+}
+
+a#olvido-password{
+	color: white;
+}
