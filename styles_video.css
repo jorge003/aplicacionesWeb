@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,body{
+/*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+	background-image: url("movie_mosaic_video.jpg");
+	background-size: cover;
+	background-repeat: repeat-y;
+	height: 100%;
+	font-family: 'Roboto';
+	color: white;
+}
+
+.panel-default{
+	/*
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 500px;
+  	margin: auto;
+    max-width: 90%;
+    top: 7.5%;
+    */
+    left: 10%;
+	position: absolute;
+	margin-top: 10px;
+	background-color: rgba(0,0,0,0.8) !important;
+}
+
+.panel-footer{
+	background-color: rgba(0,0,0,0.4) !important;
+}
+
+img#poster{
+	float: left;
+	width: 15%;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: auto;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+}
+
+.texto{
+	text-align: justify;
+	width: 1000px;
+}
