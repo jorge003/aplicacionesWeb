@@ -4,19 +4,17 @@ html,body{
 /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
 background-image: url("movie_mosaic_login.jpg");
 background-size: cover;
-background-repeat: no-repeat;
+background-repeat: repeat-y;
 height: 100%;
 font-family: 'Roboto';
 }
 
-
-		
 * {
 	margin:0px;
 	padding:0px;
 }
 		
-#header {
+header {
 	margin:auto;
 	width:auto;
 	font-family:Arial, Helvetica, sans-serif;
@@ -60,20 +58,43 @@ ul, ol {
 	right:-140px;
 	top:0px;
 }
-	
+
+.column {
+  float: left;
+  width: 16.66%;
+  padding-bottom: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}	
 
 .panel-default{
-	position: fixed;
+	/*
+	position: absolute;
 	top: 30%;
 	left: 50%;
-	height: 1000px;
-	margin-top: -9em; /*set to a negative number 1/2 of your height*/
-	margin-left: -43em; /*set to a negative number 1/2 of your width*/
-	/*
-	margin-top: auto;
-	margin-bottom: auto;
-	*/
+	margin-top: -9em; 
+	margin-left: -43em; 
 	width: 1200px;
+	height: 1000px;
+	padding-top: 10px;
+	*/
+	padding-left: 15px;
+	padding-right: 10px;
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	top: 10%;
 	background-color: rgba(0,0,0,0.8) !important;
-	background-image: url("movies.jpg");
+	/*background-image: url("movies.jpg");*/
+}
+
+.poster{
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
 }
