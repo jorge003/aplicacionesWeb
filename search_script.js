@@ -47,7 +47,7 @@ $(document).ready(function(){
 		console.log(x.length);
 		if (myIndex > x.length) {myIndex = 1}    
 			x[myIndex-1].style.display = "block";  
-		setTimeout(carousel, 5000);    
+		setTimeout(carousel, 3000);    
 	}
 
 	function carousel_1() {
