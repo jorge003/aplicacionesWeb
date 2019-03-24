@@ -2,7 +2,7 @@
 
 html,body{
 /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
-background-image: url("movie_mosaic_login.jpg");
+background-image: url("movie_mosaic_search.jpg");
 background-size: cover;
 background-repeat: repeat-y;
 height: 100%;
@@ -29,11 +29,12 @@ ul, ol {
 }
 		
 .nav li a {
-	background-color:#fff;
-	color:#fc0606;
+	background-color:rgb(14, 13, 13);
+	color:#fcf8f8;
 	text-decoration:none;
 	padding:10px 12px;
 	display:block;
+	margin-top: -41px;
 }
 		
 .nav li a:hover {
@@ -73,18 +74,6 @@ ul, ol {
 }	
 
 div.panel-default{
-	/*
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	margin-top: -9em; 
-	margin-left: -43em; 
-	width: 1200px;
-	height: 1000px;
-	padding-top: 10px;
-	left: 5%;
-	right: 5%;
-	*/
 	margin-top: 5%;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -92,13 +81,21 @@ div.panel-default{
 	padding-right: 5px;
 	position: static;
 	background-color: rgba(0,0,0,0.8) !important;
-	/*background-image: url("movies.jpg");*/
 }
 
 .poster{
 	border-style: solid;
 	border-width: 1px;
 	border-color: white;
+}
+
+header.top-panel{
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-left: 12px;
+	padding-right: 5px;
+	position: static;
+	background-color: rgba(0,0,0,0) !important;
 }
 
 /*

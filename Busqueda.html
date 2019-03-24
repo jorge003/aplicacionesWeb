@@ -52,55 +52,66 @@
 -->
 
 <body>
-	<header>
-		<ul class="nav">
-			<li><a href="">Inicio</a>
-			</li>
-			<li><a href="">Titulo</a>
-				<ul>
-					<form>
-						<div>
-							<input type="search" id="miBusqueda" name="q">
-							  <button>Buscar</button>
-						</div>
-					</form>
-				</ul>
-			</li>
-			<li><a href="">Director</a>
-				<ul>
-					<form>
-						<div>
-						  <input type="search" id="miBusqueda" name="q">
-						  <button>Buscar</button>
-						</div>
-					</form>
-				</ul>
-			</li>
-			<li><a href="">Género</a>
-				<ul>
-					<form>
-						<div>
-						  <input type="search" id="miBusqueda" name="q">
-						  <button>Buscar</button>
-						</div>
-					</form>
-				</ul>
-			</li>
-		</ul>
+	<header class= "panel top-panel">		
 	</header>
-
 	<div class="panel panel-default">
+			<ul class="nav nav-tabs">
+					<li><a data-toggle="tab" href = "#menu1">&#8981;  Titulo</a>
+						<ul>
+							<form>
+								<div>
+									<input type="search" id="miBusqueda" name="q">
+										<button>Buscar</button>
+								</div>
+							</form>
+						</ul>
+					</li>
+					<li><a data-toggle="tab" href = "#menu2">&#8981;  Director</a>
+						<ul>
+							<form>
+								<div>
+									<input type="search" id="miBusqueda" name="q">
+									<button>Buscar</button>
+								</div>
+							</form>
+						</ul>
+					</li>
+					<li><a data-toggle="tab" href = "#menu1">&#8981;  Actor</a>
+						<ul>
+							<form>
+								<div>
+									<input type="search" id="miBusqueda" name="q">
+										<button>Buscar</button>
+								</div>
+							</form>
+						</ul>
+					</li>
+					<li><a data-toggle="tab" href = "#menu1">&#8981;  Año</a>
+						<ul>
+							<form>
+								<div>
+									<input type="search" id="miBusqueda" name="q">
+										<button>Buscar</button>
+								</div>
+							</form>
+						</ul>
+					</li>
+			</ul>
 		<div class="panel-body">
 			<div class="row">
 				<div class="column" id="1-1">
+					<a href="JohnWick.html">
 					<img class="poster" src="panelSearch/JohnWick3.jpg" title="John Wick: Chapter 3 - Parabellum">
+				</a>
 				</div>
 				<div class="column" id="1-2">
+						<a href="Us.html">
 					<img class="poster" title="Us" src="panelSearch/Us.jpg">
+						</a>
 				</div>
 				<div class="column" id="1-3">
 					<img class="mySlides w3-animate-top poster" src="panelSearch/HotelMumbai.jpg" title="Hotel Mumbai">
-					<a href="video.html">
+					<a href="Interstellar.html">
 						<img class="mySlides w3-animate-bottom poster" title="Interstellar" src="panelSearch/Interstellar.jpg">
 					</a>
 					<img class="mySlides w3-animate-top poster" src="panelSearch/BoyErased.jpg">
@@ -142,7 +153,11 @@
 					<img src="panelSearch/EscapeRoom.jpg" title="Escape Room" class="mySlides3 w3-animate-bottom poster">
 				</div>
 				<div class="column" id="3-2">
-					<img class="poster" src="panelSearch/Alita.jpg" title="Alita: Battle Angel">
+					<!--<img class="poster" src="panelSearch/Alita.jpg" title="Alita: Battle Angel">-->
+					<a href="Alita.html">
+						<img class="poster" src="panelSearch/Alita.jpg" title="Alita: Battle Angel">
+					<!--<img class="mySlides4 w3-animate-bottom poster" title="Alita: Battle Angel" src="panelSearch/Alita.jpg">-->
+					</a>
 				</div>
 				<div class="column" id="3-3">
 					<img src="panelSearch/AStarIsBorn.jpg" title="A Star is Born" class="poster">
