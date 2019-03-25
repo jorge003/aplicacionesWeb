@@ -28,8 +28,8 @@ $(document).ready(function(){
 	var x = document.getElementsByClassName("mySlides" + random); 
 */
 
+
 	var myIndex = 0;
-	var random;
 
 	function carousel_0() {
 		//var i;
@@ -122,10 +122,9 @@ $(document).ready(function(){
 		setTimeout(carousel_6, 3000);    
 	}
 
-
-/*	
+/*
 	var y;
-	
+
 	function carousel() {
 		//var i;
 		var x = document.getElementsByClassName(y);
@@ -133,13 +132,10 @@ $(document).ready(function(){
 			x[i].style.display = "none";  
 		}
 		myIndex++;
-		var min=3000; 
-		var max=5000; 
 		console.log(x.length);
 		if (myIndex > x.length) {myIndex = 1}    
 			x[myIndex-1].style.display = "block";  
-		random = Math.floor(Math.random() * (+max - +min)) + +min;
-		setTimeout(carousel, random);    
+		setTimeout(carousel, 3000);    
 	}
 
 	function carousel_0(){
@@ -176,8 +172,8 @@ $(document).ready(function(){
 		y = 'mySlides6';
 		carousel();
 	}
-*/
 
+*/
 
 /*
 
@@ -214,4 +210,5 @@ $(document).ready(function(){
 	carousel_4();
 	carousel_5();
 	carousel_6();
+
 });
