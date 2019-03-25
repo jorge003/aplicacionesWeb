@@ -21,25 +21,19 @@ $(document).ready(function(){
 	    changeImage();
 		}, 3000);
 	}
-*/
-	var myIndex = 0;
-	carousel();
-	carousel_1();
-	carousel_2();
-	carousel_3();
-	carousel_4();
-	carousel_5();
-	carousel_6();
 
-/*
 	var min=1; 
     var max=3; 
 	var random = String(Math.floor(Math.random() * (+max - +min)) + +min);
 	var x = document.getElementsByClassName("mySlides" + random); 
-*/	
-	function carousel() {
+*/
+
+	var myIndex = 0;
+	var random;
+
+	function carousel_0() {
 		//var i;
-		var x = document.getElementsByClassName("mySlides");
+		var x = document.getElementsByClassName("mySlides0");
 		for (var i = 0; i < x.length; i++) {
 			x[i].style.display = "none";  
 		}
@@ -47,7 +41,7 @@ $(document).ready(function(){
 		console.log(x.length);
 		if (myIndex > x.length) {myIndex = 1}    
 			x[myIndex-1].style.display = "block";  
-		setTimeout(carousel, 3000);    
+		setTimeout(carousel_0, 3000);    
 	}
 
 	function carousel_1() {
@@ -128,4 +122,96 @@ $(document).ready(function(){
 		setTimeout(carousel_6, 3000);    
 	}
 
+
+/*	
+	var y;
+	
+	function carousel() {
+		//var i;
+		var x = document.getElementsByClassName(y);
+		for (var i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		}
+		myIndex++;
+		var min=3000; 
+		var max=5000; 
+		console.log(x.length);
+		if (myIndex > x.length) {myIndex = 1}    
+			x[myIndex-1].style.display = "block";  
+		random = Math.floor(Math.random() * (+max - +min)) + +min;
+		setTimeout(carousel, random);    
+	}
+
+	function carousel_0(){
+		y = 'mySlides0';
+		carousel();
+	}
+
+	function carousel_1(){
+		y = 'mySlides1';
+		carousel();
+	}
+
+	function carousel_2(){
+		y = 'mySlides2';
+		carousel();
+	}
+
+	function carousel_3(){
+		y = 'mySlides3';
+		carousel();
+	}
+
+	function carousel_4(){
+		y = 'mySlides4';
+		carousel();
+	}
+
+	function carousel_5(){
+		y = 'mySlides5';
+		carousel();
+	}
+
+	function carousel_6(){
+		y = 'mySlides6';
+		carousel();
+	}
+*/
+
+
+/*
+
+	for (var j = 0; j < 7; j++) {
+		var k = j;
+		y = 'mySlides' + k.toString();
+		console.log(y);
+		carousel();
+	}
+	
+	j = 0;
+	
+
+	y = 'mySlides0';
+	carousel();
+	y = 'mySlides1';
+	carousel();
+	y = 'mySlides2';
+	carousel();
+	y = 'mySlides3';
+	carousel();
+	y = 'mySlides4';
+	carousel();
+	y = 'mySlides5';
+	carousel();
+	y = 'mySlides6';
+	carousel();
+	*/
+	
+	carousel_0();
+	carousel_1();
+	carousel_2();
+	carousel_3();
+	carousel_4();
+	carousel_5();
+	carousel_6();
 });
