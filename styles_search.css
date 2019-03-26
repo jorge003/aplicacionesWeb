@@ -9,15 +9,61 @@ height: 100%;
 font-family: 'Roboto';
 }
 
+/*
 * {
 	margin:0px;
 	padding:0px;
 }
-		
+*/
+
+span#cerrar-sesion{
+	margin-top: 2%;
+	margin-left: 83%;
+	font-size: 60px;
+	color: black;
+	text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+	position: fixed;
+}
+
+p.texto-cerrar{
+	font-size: large;
+	color: white;
+	margin-top: 0%;
+	margin-left: 90%;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.img-responsive {
+    margin: 0 auto;
+}
+
+h1{
+	color: white;
+}
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus {
+    border-color: #FFFFFF;
+    border-bottom-color: transparent;
+    background-color:rgba(0,0,0,0.8) !important;
+	color:#fcf8f8 !important;
+}
+
+form.container{
+	width: 300px;
+	padding-top: 5px;
+	padding-right: 5px;
+}
+
+/*
 header {
 	margin:auto;
 	width:auto;
-	font-family:Arial, Helvetica, sans-serif;
+*/
+
+.nav-tabs {
+    border-bottom: 0px solid rgba(0,0,0,0.4);
+}
+
 }
 		
 ul, ol {
@@ -29,12 +75,13 @@ ul, ol {
 }
 		
 .nav li a {
-	background-color:rgb(14, 13, 13);
+	background-color:rgba(0,0,0,0.8);
 	color:#fcf8f8;
+	border-color: white;
 	text-decoration:none;
 	padding:10px 12px;
 	display:block;
-	margin-top: -41px;
+	margin-top: -30px;
 }
 		
 .nav li a:hover {
@@ -43,12 +90,14 @@ ul, ol {
 	
 .nav li ul {
 	display:none;
+	/*
 	position:absolute;
+	*/
 	min-width:140px;
 }
 		
 .nav li:hover > ul {
-	display:block;
+	display: inline-block;
 }
 		
 .nav li ul li {
@@ -75,8 +124,10 @@ ul, ol {
 
 div.panel-default{
 	margin-top: 5%;
+	/*
 	margin-left: 5%;
 	margin-right: 5%;
+	*/
 	padding-left: 12px;
 	padding-right: 5px;
 	position: static;
@@ -89,26 +140,9 @@ div.panel-default{
 	border-color: white;
 }
 
-header.top-panel{
-	margin-left: 5%;
-	margin-right: 5%;
-	padding-left: 12px;
-	padding-right: 5px;
-	position: static;
-	background-color: rgba(0,0,0,0) !important;
-}
-
-/*
-header.panel-default{
-	margin-top: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
+figure.panel-default{
+	margin-top: 2%;
+	width: 30%;
 	position: static;
 	background-color: rgba(0,0,0,0.8) !important;
 }
-
-button#buscar{
-	color: white;
-	background-color: #DB202C;
-}
-*/

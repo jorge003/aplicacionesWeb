@@ -52,52 +52,84 @@
 -->
 
 <body>
-	<header class= "panel top-panel">		
-	</header>
+	<section class="container">
+		
+	<figure class="panel panel-default img-responsive">
+		<img id="streamflix" src="https://fontmeme.com/permalink/190312/1d1ba6bf289fd1403396f02128bfaf82.png" alt="">
+	</figure>	
+
+	<aside>
+		<a href="login.html">
+			<span id="cerrar-sesion" class="glyphicon 		glyphicon-log-out"></span>
+			<!--
+			<p class="texto-cerrar">Cerrar</p>
+			<p class="texto-cerrar">Sesión</p>
+			-->
+		</a>
+	</aside>
+
 	<div class="panel panel-default">
 			<ul class="nav nav-tabs">
-					<li><a data-toggle="tab" href = "#menu1">&#8981;  Titulo</a>
-						<ul>
-							<form>
-								<div>
-									<input type="search" id="miBusqueda" name="q">
-										<button>Buscar</button>
+				<li><a data-toggle="tab" href = "#menu1">&#8981;  Titulo</a>
+					<ul>
+						<form class="container">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Buscar">
+								<div class="input-group-btn">
+									<button class="btn btn-danger" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
 								</div>
-							</form>
-						</ul>
-					</li>
-					<li><a data-toggle="tab" href = "#menu2">&#8981;  Director</a>
-						<ul>
-							<form>
-								<div>
-									<input type="search" id="miBusqueda" name="q">
-									<button>Buscar</button>
+							</div>
+						</form>
+					</ul>
+				</li>
+				<li><a data-toggle="tab" href = "#menu2">&#8981;  Director</a>
+					<ul>
+						<form class="container">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Buscar">
+								<div class="input-group-btn">
+									<button class="btn btn-danger" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
 								</div>
-							</form>
-						</ul>
-					</li>
-					<li><a data-toggle="tab" href = "#menu1">&#8981;  Actor</a>
-						<ul>
-							<form>
-								<div>
-									<input type="search" id="miBusqueda" name="q">
-										<button>Buscar</button>
+							</div>
+						</form>
+					</ul>
+				</li>
+				<li><a data-toggle="tab" href = "#menu1">&#8981;  Actor</a>
+					<ul>
+						<form class="container">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Buscar">
+								<div class="input-group-btn">
+									<button class="btn btn-danger" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
 								</div>
-							</form>
-						</ul>
-					</li>
-					<li><a data-toggle="tab" href = "#menu1">&#8981;  Año</a>
-						<ul>
-							<form>
-								<div>
-									<input type="search" id="miBusqueda" name="q">
-										<button>Buscar</button>
+							</div>
+						</form>
+					</ul>
+				</li>
+				<li><a data-toggle="tab" href = "#menu1">&#8981;  Año</a>
+					<ul>
+						<form class="container">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Buscar">
+								<div class="input-group-btn">
+									<button class="btn btn-danger" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
 								</div>
-							</form>
-						</ul>
-					</li>
+							</div>
+						</form>
+					</ul>
+				</li>
 			</ul>
-		<div class="panel-body">
+
+		<section class="panel-body">
+			<h1>Últimos Estrenos</h1>
 			<div class="row">
 				<div class="column" id="1-1">
 					<a href="JohnWick.html">
@@ -196,8 +228,9 @@
 					<img src="panelSearch/Album.jpg" title="Albüm" class="mySlides6 w3-animate-top poster">
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
+	</section>	
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
