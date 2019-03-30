@@ -15,31 +15,15 @@ font-family: 'Roboto';
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	height: 370px;
+	height: 270px;
 	width: 400px;
 	margin-top: -9em; /*set to a negative number 1/2 of your height*/
 	margin-left: -15em; /*set to a negative number 1/2 of your width*/
-	/*
-	margin-top: auto;
-	margin-bottom: auto;
-	*/
 	background-color: rgba(0,0,0,0.8) !important;
 }
 
 h3#ingreso{
 	color: white;
-}
-
-.input-group-addon{
-	color: #DB202C;
-}
-
-input#iniciar-sesion{
-	color: white;
-	background-color: #DB202C;
-	width: 120px;
-}
-
-a#olvido-password{
-	color: white;
+	margin-bottom: 20px;
+	margin-top: -5px;
 }
