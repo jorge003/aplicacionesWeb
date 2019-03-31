@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <title>Administración de Usuarios</title>
+    <meta charset="utf-8" />
+
+    <!--Bootsrap 3.3.7 CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="CRUD_usuarios.css">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel-heading text-center">
+                        <h1 id="encabezado">Administración de Usuarios</h1>
+                    </div>
+                    <div class="panel-body">
+                    <table id="grid" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre de Usuario</th>
+                                <th>Email</th>
+                                <th>Contraseña</th>
+                                <th style="width:80px;">
+
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input id="userName" type="text" class="form-control" />
+                                </th>
+                                <th>
+                                    <input id="email" type="email" class="form-control" />
+                                </th>
+                                <th>
+                                    <input id="password" type="password" class="form-control" />
+                                </th>
+                                <th>
+                                    <button id="btn-add" class="btn btn-default">Agregar</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="form-popup panel panel-default" id="myForm">
+      <form class="form-container panel-body">
+        <h1>Editar Usuario</h1>
+
+        <label for="email"><b>Usuario</b></label>
+        <input type="text" id="newUser" name="newUser" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" id="newEmail" name="newEmail" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="newPsw" placeholder="Ingresa una nueva contraseña" name="newPsw" required>
+        <div class="text-center">
+            <button id="btn-change" class="btn btn-info">Guardar</button>
+            <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
+        </div>
+      </form>
+    </section>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="CRUD_usuarios.js"></script>
+
+</html>

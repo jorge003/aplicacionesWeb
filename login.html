@@ -11,9 +11,6 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="styles_login.css">
 
@@ -33,19 +30,20 @@
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-user"></i>
 						</span>
-						<input type="text" class="form-control" placeholder="Nombre de usuario">
+						<input type="text" id="user" class="form-control" placeholder="Nombre de usuario" required>
 					</div>
 					<div class="form-group input-group" id="password">
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-lock"></i>
 						</span>
-						<input type="password" class="form-control" placeholder="Contraseña">
+						<input type="password" id="contraseña" class="form-control" placeholder="Contraseña" required>
 					</div>
 					<div class="form-group">
 						<a id="olvido-password" href="#">¿Olvidaste tu contraseña?</a>
 					</div>
-					<a href="Busqueda.html" class="btn btn-danger pull-right" role="button">Iniciar sesión</a>
+					<button id="btn-iniciar" class="btn btn-danger pull-right">Iniciar sesión</button>
 					<!--
+					<a href="Busqueda.html" class="btn btn-danger pull-right" role="button">Iniciar sesión</a>
 					<a href="Busqueda.html">
 						<input value="Iniciar sesión" id="iniciar-sesion" class="btn pull-right">
 					</a>
@@ -55,4 +53,11 @@
 		</div>
 	</section>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="login.js"></script>
+
 </html>

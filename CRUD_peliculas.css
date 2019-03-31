@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,body{
+/*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+background-image: url("movie_mosaic_search.jpg");
+background-size: cover;
+background-repeat: repeat-y;
+height: 100%;
+font-family: 'Roboto';
+}
+
+h1{
+  text-align: center;
+  color: white;
+}
+
+{box-sizing: border-box;}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  right: 17%;
+  /*
+  right: 15px;
+  */
+  border: 3px solid #f1f1f1;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  /*background-color: white;*/
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+th{
+  color: white;
+}
+
+div.panel-default{
+  margin-top: 5%;
+  /*
+  margin-left: 5%;
+  margin-right: 5%;
+  */
+  padding-left: 12px;
+  padding-right: 5px;
+  position: static;
+  background-color: rgba(0,0,0,0.8) !important;
+}
+
+section.panel-default{
+  background-color: rgba(0,0,0,0.8) !important;
+}
+
+label{
+  color: white;
+}
+
+tr:nth-child(even) {
+  color: white;
+  border: 1px solid #f1f1f1;
+}
+
+tr:nth-child(odd) {
+  border: 1px solid #f1f1f1;
+}
+
+.boton_igual{
+  width: 70px !important;
+}
