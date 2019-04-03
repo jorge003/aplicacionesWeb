@@ -2,7 +2,7 @@
 <html lang="es-ES">
 
 <head>
-    <title>Administración de Películas</title>
+    <title>Administración de Usuarios</title>
     <meta charset="utf-8" />
 
     <!--Bootsrap 3.3.7 CDN-->
@@ -12,7 +12,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="CRUD_peliculas.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/CRUD_usuarios.css">
 
 
 </head>
@@ -24,28 +24,28 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="panel-heading text-center">
-                        <h1 id="encabezado">Administración de Películas</h1>
+                        <h1 id="encabezado">Administración de Usuarios</h1>
                     </div>
                     <div class="panel-body">
                     <table id="grid" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre de la Película</th>
-                                <th>Director</th>
-                                <th>Año</th>
+                                <th>Nombre de Usuario</th>
+                                <th>Email</th>
+                                <th>Contraseña</th>
                                 <th style="width:80px;">
 
                                 </th>
                             </tr>
                             <tr>
                                 <th>
-                                    <input id="movie" type="text" class="form-control" />
+                                    <input id="userName" type="text" class="form-control" />
                                 </th>
                                 <th>
-                                    <input id="director" type="text" class="form-control" />
+                                    <input id="email" type="email" class="form-control" />
                                 </th>
                                 <th>
-                                    <input id="year" type="text" class="form-control" />
+                                    <input id="password" type="password" class="form-control" />
                                 </th>
                                 <th>
                                     <button id="btn-add" class="btn btn-default">Agregar</button>
@@ -64,14 +64,14 @@
       <form class="form-container panel-body">
         <h1>Editar Usuario</h1>
 
-        <label for="email"><b>Nombre de la película</b></label>
-        <input type="text" id="newMovie" name="newMovie" required>
+        <label for="email"><b>Usuario</b></label>
+        <input type="text" id="newUser" name="newUser" required>
 
-        <label for="email"><b>Director</b></label>
-        <input type="text" id="newDirector" name="newDirector" required>
+        <label for="email"><b>Email</b></label>
+        <input type="email" id="newEmail" name="newEmail" required>
 
-        <label for="psw"><b>Año</b></label>
-        <input type="text" id="newYear" name="newYear" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="newPsw" placeholder="Ingresa una nueva contraseña" name="newPsw" required>
         <div class="text-center">
             <button id="btn-change" class="btn btn-info">Guardar</button>
             <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
@@ -84,6 +84,6 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="CRUD_peliculas.js"></script>
+<script src="../JS/CRUD_usuarios.js"></script>
 
 </html>
