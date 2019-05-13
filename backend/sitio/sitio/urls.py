@@ -19,4 +19,7 @@ from streamflix import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.login, name="login"),
+    path('busqueda/', views.busqueda, name="busqueda"),
+    path('video/', views.video, name="video"),
 ]

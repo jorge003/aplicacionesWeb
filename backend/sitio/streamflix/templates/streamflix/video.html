@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Video Page</title>
+
+	{% load static %}
+	<!--Bootsrap 3.3.7 CDN-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+	crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+	crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+	crossorigin="anonymous"></script>
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/styles_video.css" %}'>
+
+</head>
+<body>
+	<aside>
+		<a href="{% url 'busqueda' %}">
+			<span id="volver" class="glyphicon 		glyphicon-circle-arrow-left"></span>
+		</a>
+	</aside>
+	<section class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<iframe width="1024" height="600" src="https://www.youtube.com/embed/0vxOhd4qlnA?autoplay=1&mute=1" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
+			</div>
+			<div class="panel-footer">
+				<figure>
+					<div id="info-pelicula">
+						<img id="poster" src='{% static "streamflix/panelSearch/Interstellar.jpg" %}' alt="">
+						<p>
+							<span class="etiqueta">Película: </span>
+							<span id="movie"></span>
+						</p>
+						<p>
+							<span class="etiqueta">Director: </span>
+							<span id="director"></span>
+						</p>
+						<p>
+							<span class="etiqueta">Año: </span>
+							<span id="year"></span>
+						</p>
+						<p class="texto">
+							<span class="etiqueta">Sinopsis: </span>
+							Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (Matthew McConaughey) y la científica Amelia (Anne Hathaway) emprende una misión que puede ser la más importante de la historia de la humanidad: viajar más allá de nuestra galaxia para descubrir algún planeta en otra que pueda garantizar el futuro de la raza humana.
+						</p>
+					</div>
+				</figure>
+			</div>
+		</div>
+	</section>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src='{% static "streamflix/JS/Interstellar.js" %}'></script>
+
+</html>
