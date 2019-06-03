@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% block head %}{% endblock %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/styles_base.css" %}'>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+		<div id="nav-general" class="container-fluid">
+			<div class="navbar-header navbar-left">
+				<a href="{% url 'busqueda' %}">
+					<img id="streamflix" src="https://fontmeme.com/permalink/190312/1d1ba6bf289fd1403396f02128bfaf82.png">
+				</a>
+			</div>
+			<form class="navbar-form navbar-right" method="post" action="{% url 'resultados' %}">
+			{% csrf_token %}
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Película/Director/Año" name="search">
+					<div class="input-group-btn">
+						<button class="btn btn-danger" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+				<a href="{% url 'logout' %}">
+					<button id="logout" type="button" class="btn btn-danger">Cerrar sesión</button>
+				</a>
+			</form>
+		</div>
+	</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--
+{% block search_script %}{% endblock %}
+-->
+</html>

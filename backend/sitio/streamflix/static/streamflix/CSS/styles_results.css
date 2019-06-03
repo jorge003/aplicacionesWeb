@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,body{
+/*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+background-image: url("movie_mosaic_search.jpg");
+background-size: cover;
+background-repeat: repeat-y;
+height: 100%;
+font-family: 'Roboto';
+}
+
+h1{
+	color: white;
+	float:left;
+}
+
+h2{
+	color: white;
+	text-align: center;
+	border: 1px solid white;
+}
+
+h4{
+	color: white;
+}
+
+h6{
+	color: white;
+}
+
+.column {
+  float: left;
+  width: 16.66%;
+  padding-bottom: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}	
+
+div.panel-default{
+	margin-top: 10%;
+	padding-left: 12px;
+	padding-right: 5px;
+	position: static;
+	background-color: rgba(0,0,0,0.8) !important;
+}
+
+.poster{
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+	max-width:100%;
+    height:auto;
+}
+
+span#volver{
+	margin-top: 5%;
+	margin-left: 10px;
+	font-size: 60px;
+	color: black;
+	text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+	position: fixed;
+	z-index: 1;
+}
+
+#logout_alt{
+	visibility: hidden;
+	position: relative;
+}
+
+@media only screen and (max-width: 790px){
+
+	div.panel-default{
+		margin-top: 20%;
+	}
+
+	span#volver{
+		margin-top: 17%;
+	}
+
+	#logout_alt{
+		visibility: visible;
+		float: right; 
+		margin-top: 20px;
+		position: relative;
+	}
+}

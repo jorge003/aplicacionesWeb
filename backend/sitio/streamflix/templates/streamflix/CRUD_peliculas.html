@@ -5,19 +5,30 @@
     <title>Administración de Películas</title>
     <meta charset="utf-8" />
 
+    {% load static %}
     <!--Bootsrap 3.3.7 CDN-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+    crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+    crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="../CSS/CRUD_peliculas.css">
+    <link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/CRUD_peliculas.css" %}'>
 
 
 </head>
 
 <body>
+
+    <aside>
+		<a href="{% url 'admin_content' %}">
+			<span id="volver" class="glyphicon glyphicon-circle-arrow-left"></span>
+		</a>
+	</aside>
 
     <div class="container">
         <div class="panel panel-default">
@@ -31,59 +42,78 @@
                         <thead>
                             <tr>
                                 <th>Nombre de la Película</th>
-                                <th>Director</th>
+                                <th>URL del avance</th>
                                 <th>Año</th>
+                                <!--<th>Año</th>-->
                                 <th style="width:80px;">
 
                                 </th>
                             </tr>
-                            <tr>
-                                <th>
-                                    <input id="movie" type="text" class="form-control" />
-                                </th>
-                                <th>
-                                    <input id="director" type="text" class="form-control" />
-                                </th>
-                                <th>
-                                    <input id="year" type="text" class="form-control" />
-                                </th>
-                                <th>
-                                    <button id="btn-add" class="btn btn-default">Agregar</button>
-                                </th>
-                            </tr>
+                            <form action={% url 'search_movie' %} method="post">
+                            {% csrf_token %}
+                                <tr>
+                                    <th>
+                                        <input id="movie" name="titulo" type="text" class="form-control" />
+                                    </th>
+                                    <th>
+                                        <input id="url_video" name="url_video" type="text" class="form-control" />
+                                    </th>
+                                    <th>
+                                    <!--
+                                        <input id="director" name="director" type="text" class="form-control" />
+                                    -->
+                                    </th>
+                                    <th>
+                                        <button id="btn-add" type="submit" class="btn btn-default">Agregar</button>
+                                    </th>
+                                </tr>
+                            </form>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            {% for movie in base_movies %}
+                                <tr>
+                                    <td>{{movie.Title}}</td>
+                                    <td>{{movie.url_contenido}}</td>
+                                    <td>{{movie.Year}}</td>
+                                    <td>
+                                        <button type="button" class="btn boton_igual btn-xs btn-info btn_editar" data-url="{% url "update_movie" movie.id %}" onclick="openForm()">Editar</button>
+                                            <section class="form-popup panel panel-default" id="myForm">
+                                            <form action="" method="post" class="form-container panel-body thisForm">
+                                                {% csrf_token %}
+                                                <h1>Editar Película</h1>
+
+                                                <label ><b>Nombre de la película</b></label>
+                                                <input type="text" id="newMovie" name="newMovie" placeholder="Ingresa un nuevo nombre para la película" required>
+
+                                                <label ><b>URL del avance</b></label>
+                                                <input type="text" id="newURL" name="newURL" placeholder="Ingresa una nueva URL para el video" required>
+
+                                                <div class="text-center">
+                                                    <button id="btn-change" type="submit" class="btn btn-info">Guardar</button>
+                                                    <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
+                                                </div>
+                                            </form>
+                                            </section>
+                                        <form action="{% url "movie_delete" movie.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type='submit' class="btn boton_igual btn-xs btn-danger">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
                     </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <section class="form-popup panel panel-default" id="myForm">
-      <form class="form-container panel-body">
-        <h1>Editar Usuario</h1>
-
-        <label for="email"><b>Nombre de la película</b></label>
-        <input type="text" id="newMovie" name="newMovie" required>
-
-        <label for="email"><b>Director</b></label>
-        <input type="text" id="newDirector" name="newDirector" required>
-
-        <label for="psw"><b>Año</b></label>
-        <input type="text" id="newYear" name="newYear" required>
-        <div class="text-center">
-            <button id="btn-change" class="btn btn-info">Guardar</button>
-            <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
-        </div>
-      </form>
-    </section>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="../JS/CRUD_peliculas.js"></script>
+<script src='{% static "streamflix/JS/CRUD_peliculas.js" %}'></script>
 
 </html>

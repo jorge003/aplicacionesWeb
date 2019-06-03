@@ -1,11 +1,6 @@
 $(document).ready(function(){
 
 	var myIndex = 0;
-
-	var person = sessionStorage.getItem('person');
-	if(person !== null){
-		document.getElementById("person").innerHTML = "Bienvenido, " + person;
-	}
 	
 	function carousel(slides) {
 		var x = document.getElementsByClassName(slides);

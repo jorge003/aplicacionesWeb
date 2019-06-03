@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Video Page</title>
@@ -23,38 +24,47 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/styles_video.css" %}'>
-
 </head>
+
 <body>
 	<aside>
 		<a href="{% url 'busqueda' %}">
-			<span id="volver" class="glyphicon 		glyphicon-circle-arrow-left"></span>
+			<span id="volver" class="glyphicon glyphicon-circle-arrow-left"></span>
 		</a>
 	</aside>
+	
 	<section class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<iframe width="1024" height="600" src="https://www.youtube.com/embed/0vxOhd4qlnA?autoplay=1&mute=1" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
+				{% with url_final=movie.url_contenido|add:"?autoplay=1&mute=1" %}
+				<iframe width="100%" height="600" src="{{url_final}}" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				{% endwith %}
 			</div>
 			<div class="panel-footer">
 				<figure>
 					<div id="info-pelicula">
-						<img id="poster" src='{% static "streamflix/panelSearch/Interstellar.jpg" %}' alt="">
+						<img id="poster" src='{{movie.Poster.url}}' alt="">
 						<p>
 							<span class="etiqueta">Película: </span>
-							<span id="movie"></span>
+							<span>{{movie.Title}}</span>
 						</p>
 						<p>
 							<span class="etiqueta">Director: </span>
-							<span id="director"></span>
+							<span>{{movie.Director}}</span>
+						</p>
+						<p>
+							<span class="etiqueta">Actores: </span>
+						{% for actor in actores %}
+							<span>{{actor.nombre_actor}}{% if not forloop.last %}, {% endif %}</span>
+						{% endfor %}
 						</p>
 						<p>
 							<span class="etiqueta">Año: </span>
-							<span id="year"></span>
+							<span>{{movie.Year}}</span>
 						</p>
 						<p class="texto">
 							<span class="etiqueta">Sinopsis: </span>
-							Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (Matthew McConaughey) y la científica Amelia (Anne Hathaway) emprende una misión que puede ser la más importante de la historia de la humanidad: viajar más allá de nuestra galaxia para descubrir algún planeta en otra que pueda garantizar el futuro de la raza humana.
+							{{movie.Plot}}
 						</p>
 					</div>
 				</figure>
@@ -66,7 +76,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src='{% static "streamflix/JS/Interstellar.js" %}'></script>
 
 </html>

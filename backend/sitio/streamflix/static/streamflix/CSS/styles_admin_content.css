@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html,body{
-/*
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-*/
 background-image: url("movie_mosaic_login.jpg");
 background-size: cover;
 background-repeat: no-repeat;
@@ -15,10 +12,10 @@ font-family: 'Roboto';
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	height: 320px;
+	height: 370px;
 	width: 400px;
-	margin-top: -9em; /*set to a negative number 1/2 of your height*/
-	margin-left: -15em; /*set to a negative number 1/2 of your width*/
+	margin-top: -9em;
+	margin-left: -15em;
 	background-color: rgba(0,0,0,0.8) !important;
 }
 

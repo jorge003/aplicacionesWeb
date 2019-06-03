@@ -1,31 +1,47 @@
 from django.db import models
-from django import forms
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
-class Usuarios(models.Model):
-    nombre_usuario = models.CharField(max_length=30, unique=True)
-    email = models.EmailField(unique=True)
-    password = forms.CharField(max_length=32, widget=forms.PasswordInput)
-    ADMIN = 'A'
-    USER = 'U'
-    TIPO_USUARIO_CHOICES = (
-        (ADMIN, 'Administrador'),
-        (USER, 'Usuario'),
-    )
-    tipo_usuario = models.CharField(
-        max_length=1,
-        choices=TIPO_USUARIO_CHOICES,
-        default=USER,
-    )
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    #username = models.CharField(max_length=30, unique=True)
+    #email = models.EmailField(unique=True)
+    #password = models.CharField(max_length=32, default=1234)
+    tipo_usuario = models.CharField(max_length=7)
 
-class Actores(models.Model):
-    nombre_actor = models.CharField(max_length=50)
+    class Meta:
+        ordering = ['-id']
+        permissions = (
+            ('nivel_admin', 'Nivel de administrador'),
+        )
 
-class Movies(models.Model):
-    movie = models.CharField(max_length=50)
+    def __str__(self):
+        return self.user.username
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Usuario.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.usuario.save()
+
+class Actor(models.Model):
+    nombre_actor = models.CharField(max_length=100)
+
+class Movie(models.Model):
+    Title = models.CharField(max_length=100, unique=True)
+    Year = models.IntegerField()
+    Director = models.CharField(max_length=100, null=True)
+    Plot = models.TextField()
+    #Poster = models.URLField()
+    Poster = models.ImageField()
+    Metascore = models.FloatField()
     url_contenido = models.URLField()
-    descripcion = models.TextField()
-    year = models.CharField(max_length=4)
-    url_portada = models.URLField()
-    score = models.CharField(max_length=1)
-    actores = models.ManyToManyField(Actores)
+    Actors = models.ManyToManyField(Actor)
+
+    class Meta:
+        ordering = ['-id']

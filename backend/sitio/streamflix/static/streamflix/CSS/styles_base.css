@@ -1,0 +1,35 @@
+#streamflix{
+	margin-top: 1%;
+	max-width:50%;
+  	max-height:50%;
+}
+
+.navbar-inverse {
+  background-color: rgba(0,0,0,0.8) !important;
+  background-image: none;
+  background-repeat: no-repeat;
+  border-color: white;
+ }
+
+ @media only screen and (max-width: 790px){
+
+	#streamflix {
+		position: absolute;
+	    left: 45%;
+	    margin-left: -50px !important;
+	    display: block;
+		margin-top: 1%;
+		max-width:30%;
+	  	max-height:30%;
+  	}
+
+  	.input-group {
+  		margin-top: 5%;
+		max-width: 90%;
+		margin-left: 5%;
+  	}
+
+	#logout{
+		display: none;
+	}
+}

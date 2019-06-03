@@ -16,27 +16,20 @@ h1{
 
 {box-sizing: border-box;}
 
-/* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
   bottom: 0;
   z-index: 9;
   right: 17%;
-  /*
-  right: 15px;
-  */
   border: 3px solid #f1f1f1;
 }
 
-/* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
-  /*background-color: white;*/
 }
 
-/* Full-width input fields */
 .form-container input[type=text], 
 .form-container input[type=password],
 .form-container input[type=email] {
@@ -53,10 +46,6 @@ th{
 
 div.panel-default{
   margin-top: 5%;
-  /*
-  margin-left: 5%;
-  margin-right: 5%;
-  */
   padding-left: 12px;
   padding-right: 5px;
   position: static;
@@ -82,4 +71,19 @@ tr:nth-child(odd) {
 
 .boton_igual{
   width: 70px !important;
+}
+
+input[type=radio],
+input.radio {
+  clear: none;
+}
+
+span#volver{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 60px;
+  color: black;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  position: fixed;
+  z-index: 1;
 }

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'streamflix/base.html' %}
+
+{% block head %}
 	<meta charset="UTF-8">
 	<title>Search Page</title>
 
@@ -18,202 +18,139 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/styles_search.css" %}'>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock %}
 
-</head>
+{% block content %}
 
-<body>
 	<section class="container">
-		
-	<figure class="panel panel-default img-responsive">
-		<img id="streamflix" src="https://fontmeme.com/permalink/190312/1d1ba6bf289fd1403396f02128bfaf82.png" alt="">
-		<h2 id="person"></h2>
-	</figure>	
-
-	<aside>
-		<a href="login.html">
-			<span id="cerrar-sesion" class="glyphicon 		glyphicon-log-out"></span>
-			<!--
-			<p class="texto-cerrar">Cerrar</p>
-			<p class="texto-cerrar">Sesión</p>
-			-->
-		</a>
-	</aside>
 
 	<div class="panel panel-default">
-			<ul class="nav nav-tabs">
-				<li><a data-toggle="tab" href = "#menu1">&#8981;  Titulo</a>
-					<ul>
-						<form class="container">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Buscar">
-								<div class="input-group-btn">
-									<button class="btn btn-danger" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
-							</div>
-						</form>
-					</ul>
-				</li>
-				<li><a data-toggle="tab" href = "#menu2">&#8981;  Director</a>
-					<ul>
-						<form class="container">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Buscar">
-								<div class="input-group-btn">
-									<button class="btn btn-danger" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
-							</div>
-						</form>
-					</ul>
-				</li>
-				<li><a data-toggle="tab" href = "#menu1">&#8981;  Actor</a>
-					<ul>
-						<form class="container">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Buscar">
-								<div class="input-group-btn">
-									<button class="btn btn-danger" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
-							</div>
-						</form>
-					</ul>
-				</li>
-				<li><a data-toggle="tab" href = "#menu1">&#8981;  Año</a>
-					<ul>
-						<form class="container">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Buscar">
-								<div class="input-group-btn">
-									<button class="btn btn-danger" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</div>
-							</div>
-						</form>
-					</ul>
-				</li>
-			</ul>
 
 		<section class="panel-body">
-			<h1>Últimos Estrenos</h1>
-			<div class="row">
-				<div class="column" id="1-1">
-					<a href="JohnWick.html">
-					<img class="poster" src= '{% static "streamflix/panelSearch/JohnWick3.jpg" %}' title="John Wick: Chapter 3 - Parabellum">
+			<div class="clearfix">
+				<h1>Últimos Estrenos</h1>
+				<a href="{% url 'logout' %}">
+					<button id="logout_alt" type="button" class="btn btn-danger">Cerrar sesión</button>
 				</a>
+			</div>
+			<div class="row">
+		{% for movie in base_movies|slice:":24" %}
+			{% if forloop.counter == 3 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"14:17" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
 				</div>
-				<div class="column" id="1-2">
-						<a href="Us.html">
-					<img class="poster" title="Us" src='{% static "streamflix/panelSearch/Us.jpg" %}'>
-						</a>
+			{% elif forloop.counter == 7 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"22:25" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
 				</div>
-				<div class="column" id="1-3">
-					<img class="mySlides0 w3-animate-top poster" src='{% static "streamflix/panelSearch/HotelMumbai.jpg" %}' title="Hotel Mumbai">
-					<a href="{% url 'video' %}">
-						<img class="mySlides0 w3-animate-bottom poster" title="Interstellar" src='{% static "streamflix/panelSearch/Interstellar.jpg" %}'>
+			{% elif forloop.counter == 11 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"26:29" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+				</div>
+			{% elif forloop.counter == 15 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"18:21" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+				</div>
+			{% elif forloop.counter == 19 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"9:13" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+				</div>
+			{% elif forloop.counter == 23 %}
+				<div class="column carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					{% for film in base_movies|slice:"5:8" %}
+						{% if forloop.counter == 1 %}
+							<div class="item active">
+						{% else %}
+							<div class="item">
+						{% endif %}
+								<a href="{% url 'video' film.id %}">
+									<img class="poster" src="{{film.Poster.url}}" title="{{film.Title}}">
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+				</div>
+			{% else %}
+				<div class="column">
+					<a href="{% url 'video' movie.id %}">
+						<img class="poster" src="{{movie.Poster.url}}" title="{{movie.Title}}">
 					</a>
-					<img class="mySlides0 w3-animate-top poster" src='{% static "streamflix/panelSearch/BoyErased.jpg" %}'>
 				</div>
-				<div class="column" id="1-4">
-					<img class="poster" src='{% static "streamflix/panelSearch/DraggedAcrossConcrete.jpg" %}' title="Dragged Across Concrete">
-				</div>
-				<div class="column" id="1-5">
-					<img class="poster" src='{% static "streamflix/panelSearch/RamenShop.jpg" %}' title="Ramen Shop">
-				</div>
-				<div class="column" id="1-6">
-					<img class="poster" src='{% static "streamflix/panelSearch/Sunset.jpg" %}' title="Sunset">
-				</div>
-				<div class="column" id="2-1">
-					<img class="poster" src='{% static "streamflix/panelSearch/TripleThreat.jpg" %}' title="Triple Threat">
-				</div>
-				<div class="column" id="2-2">
-					<img class="mySlides1 w3-animate-bottom poster" src='{% static "streamflix/panelSearch/CaptainMarvel.jpg" %}' title="Captain Marvel">
-					<img src='{% static "streamflix/panelSearch/DolorGloria.jpg" %}' title="Dolor y Gloria" class="mySlides1 w3-animate-top poster">
-					<img src='{% static "streamflix/panelSearch/BirdsOfPassage.jpg" %}' title="BirdsOfPassage" class="mySlides1 w3-animate-bottom poster">
-				</div>
-				<div class="column" id="2-3">
-					<img class="poster" src='{% static "streamflix/panelSearch/WonderPark.jpg" %}' title="Wonder Park">
-				</div>
-				<div class="column" id="2-4">
-					<img class="poster" src='{% static "streamflix/panelSearch/FiveFeetApart.jpg" %}' title="Five Feet Apart">
-				</div>
-				<div class="column" id="2-5">
-					<img class="mySlides2 w3-animate-top poster" src='{% static "streamflix/panelSearch/CaptiveState.jpg" %}' title="Captive State">
-					<img src='{% static "streamflix/panelSearch/Campeones.jpg" %}' title="Campeones" class="mySlides2 w3-animate-bottom poster">
-					<img src='{% static "streamflix/panelSearch/Kesari.jpg" %}' title="Kesari" class="mySlides2 w3-animate-top poster">
-				</div>
-				<div class="column" id="2-6">
-					<img class="poster" src='{% static "streamflix/panelSearch/Lego2.jpg" %}' title="Lego The Movie 2">
-				</div>
-				<div class="column" id="3-1">
-					<img class="mySlides3 w3-animate-bottom poster" src='{% static "streamflix/panelSearch/HTTYD.jpg" %}' title="How to Train Your Dragon: The Hidden World">
-					<img src='{% static "streamflix/panelSearch/Maya.jpg" %}' title="Maya" class="mySlides3 w3-animate-top poster">
-					<img src='{% static "streamflix/panelSearch/EscapeRoom.jpg" %}' title="Escape Room" class="mySlides3 w3-animate-bottom poster">
-				</div>
-				<div class="column" id="3-2">
-					<!--<img class="poster" src='{% static "streamflix/panelSearch/Alita.jpg" %}' title="Alita: Battle Angel">-->
-					<a href="Alita.html">
-						<img class="poster" src='{% static "streamflix/panelSearch/Alita.jpg" %}' title="Alita: Battle Angel">
-					<!--<img class="mySlides4 w3-animate-bottom poster" title="Alita: Battle Angel" src='{% static "streamflix/panelSearch/Alita.jpg" %}'>-->
-					</a>
-				</div>
-				<div class="column" id="3-3">
-					<img src='{% static "streamflix/panelSearch/AStarIsBorn.jpg" %}' title="A Star is Born" class="poster">
-				</div>
-				<div class="column" id="3-4">
-					<img src='{% static "streamflix/panelSearch/BelCanto.jpg" %}' title="Bel Canto" class="mySlides4 w3-animate-top poster">
-					<img src='{% static "streamflix/panelSearch/21JumpStreet.jpg" %}' title="21 Jump Street" class="mySlides4 w3-animate-bottom poster">
-					<img src='{% static "streamflix/panelSearch/ColdWar.jpg" %}' title="Cold War" class="mySlides4 w3-animate-top poster">
-				</div>
-				<div class="column" id="3-5">
-					<img src='{% static "streamflix/panelSearch/BohemianRhapsody.jpg" %}' title="Bohemian Rhapsody" class="poster">
-				</div>
-				<div class="column" id="3-6">
-					<img src='{% static "streamflix/panelSearch/Glass.jpg" %}' title="Glass" class="poster">
-				</div>
-				<div class="column" id="4-1">
-					<img src='{% static "streamflix/panelSearch/GreenBook.jpg" %}' title="Green Book" class="poster">
-				</div>
-				<div class="column" id="4-2">
-					<img src='{% static "streamflix/panelSearch/MaryPoppins.jpg" %}' title="Mary Poppins Returns" class="poster">
-				</div>
-				<div class="column" id="4-3">
-					<img src='{% static "streamflix/panelSearch/Onyx.jpg" %}' title="Onyx" class="mySlides5 w3-animate-bottom poster">
-					<img src='{% static "streamflix/panelSearch/Mirai.jpg" %}' title="Mirai" class="mySlides5 w3-animate-top poster">
-					<img src='{% static "streamflix/panelSearch/WomanAtWar.jpg" %}' title="Woman at War" class="mySlides5 w3-animate-bottom poster">
-				</div>
-				<div class="column" id="4-4">
-					<img src='{% static "streamflix/panelSearch/Roma.jpg" %}' title="Roma" class="poster">
-				</div>
-				<div class="column" id="4-5">
-					<img src='{% static "streamflix/panelSearch/Creed2.jpg" %}' title="Creed II" class="poster">
-				</div>
-				<div class="column" id="4-6">
-					<img src='{% static "streamflix/panelSearch/MaryQueenOfScots.jpg" %}' title="Mary Queen of Scots" class="mySlides6 w3-animate-top poster">
-					<img src='{% static "streamflix/panelSearch/Valentina.jpg" %}' title="Valentina" class="mySlides6 w3-animate-bottom poster">
-					<img src='{% static "streamflix/panelSearch/Album.jpg" %}' title="Albüm" class="mySlides6 w3-animate-top poster">
-				</div>
+			{% endif %}
+		{% endfor %}
 			</div>
 		</section>
 	</div>
-	</section>	
-</body>
+	</section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+{% endblock %}
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<!--
+{% block search_script %}
 <script src='{% static "streamflix/JS/search_script.js" %}'></script>
-
-</html>
-
-
+{% endblock %}
+-->
 
 
 

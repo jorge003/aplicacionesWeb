@@ -5,19 +5,30 @@
     <title>Administración de Usuarios</title>
     <meta charset="utf-8" />
 
+    {% load static %}
     <!--Bootsrap 3.3.7 CDN-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+    crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+    crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="../CSS/CRUD_usuarios.css">
+    <link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/CRUD_usuarios.css" %}'>
 
 
 </head>
 
 <body>
+
+    <aside>
+		<a href="{% url 'admin_content' %}">
+			<span id="volver" class="glyphicon glyphicon-circle-arrow-left"></span>
+		</a>
+	</aside>
 
     <div class="container">
         <div class="panel panel-default">
@@ -33,57 +44,95 @@
                                 <th>Nombre de Usuario</th>
                                 <th>Email</th>
                                 <th>Contraseña</th>
+                                <th>Tipo de Usuario</th>
                                 <th style="width:80px;">
 
                                 </th>
                             </tr>
-                            <tr>
-                                <th>
-                                    <input id="userName" type="text" class="form-control" />
-                                </th>
-                                <th>
-                                    <input id="email" type="email" class="form-control" />
-                                </th>
-                                <th>
-                                    <input id="password" type="password" class="form-control" />
-                                </th>
-                                <th>
-                                    <button id="btn-add" class="btn btn-default">Agregar</button>
-                                </th>
-                            </tr>
+                            <form action={% url 'add_usuario' %} method="post">
+                            {% csrf_token %}
+                                <tr>
+                                    <th>
+                                        <input id="userName" name="userName" type="text" class="form-control" />
+                                    </th>
+                                    <th>
+                                        <input id="email" name="email" type="email" class="form-control" />
+                                    </th>
+                                    <th>
+                                        <input id="password" name="password" type="password" class="form-control" />
+                                    </th>
+                                    <th>
+                                        <input type="radio" name="tipo_usuario" value="Admin.">Admin.<br>
+                                        <input type="radio" name="tipo_usuario" value="Usuario" checked>Usuario
+                                    </th>
+                                    <th>
+                                        <button id="btn-add" type="submit" class="btn btn-default">Agregar</button>
+                                    </th>
+                                </tr>
+                            </form>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            {% for usuario in base_usuarios %}
+                                <tr>
+                                    <td>{{usuario.username}}</td>
+                                    <td>{{usuario.email}}</td>
+                                {% if usuario.password is not None %}
+                                    <td>**************</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                                    <td>{{usuario.usuario.tipo_usuario}}</td>
+                                    <td>
+                                        <button type="button" class="btn boton_igual btn-xs btn-info btn_editar" data-url="{% url "update_usuario" usuario.id %}" onclick="openForm()">Editar</button>
+                                            <section class="form-popup panel panel-default" id="myForm">
+                                            <form action="" method="post" class="form-container panel-body thisForm">
+                                                {% csrf_token %}
+                                                <h1>Editar Usuario</h1>
+
+                                                <label for="email"><b>Usuario</b></label>
+                                                <input type="text" name="newUser" placeholder="Ingresa un nuevo nombre de usuario" required>
+
+                                                <label for="email"><b>Email</b></label>
+                                                <input type="email" name="newEmail" placeholder="Ingresa un nuevo email" required>
+
+                                                <label for="psw"><b>Password</b></label>
+                                                <input type="password" placeholder="Ingresa una nueva contraseña" name="newPsw" required>
+
+                                                <label for="userType"><b>Tipo de usuario</b></label>
+                                                <p>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="nuevo_tipo_usuario" value="Admin.">Administrador
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="nuevo_tipo_usuario" value="Usuario" checked>Usuario
+                                                    </label>
+                                                </p>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-info">Guardar</button>
+                                                    <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
+                                                </div>
+                                            </form>
+                                            </section>
+                                        <form action="{% url "user_delete" usuario.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type='submit' class="btn boton_igual btn-xs btn-danger">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
                     </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <section class="form-popup panel panel-default" id="myForm">
-      <form class="form-container panel-body">
-        <h1>Editar Usuario</h1>
-
-        <label for="email"><b>Usuario</b></label>
-        <input type="text" id="newUser" name="newUser" required>
-
-        <label for="email"><b>Email</b></label>
-        <input type="email" id="newEmail" name="newEmail" required>
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" id="newPsw" placeholder="Ingresa una nueva contraseña" name="newPsw" required>
-        <div class="text-center">
-            <button id="btn-change" class="btn btn-info">Guardar</button>
-            <button type="button" class="btn btn-danger" onclick="closeForm()">Cerrar</button>
-        </div>
-      </form>
-    </section>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="../JS/CRUD_usuarios.js"></script>
+<script src='{% static "streamflix/JS/CRUD_usuarios.js" %}'></script> 
 
 </html>

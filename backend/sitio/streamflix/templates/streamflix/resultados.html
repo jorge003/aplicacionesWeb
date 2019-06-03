@@ -1,0 +1,106 @@
+{% extends 'streamflix/base.html' %}
+
+{% block head %}
+	<meta charset="UTF-8">
+	<title>Results Page</title>
+
+	{% load static %}
+	<!--Bootsrap 3.3.7 CDN-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+	crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+	crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href='{% static "streamflix/CSS/styles_results.css" %}'>
+{% endblock %}
+
+{% block content %}
+
+	<aside>
+		<a href="{% url 'busqueda' %}">
+			<span id="volver" class="glyphicon glyphicon-circle-arrow-left"></span>
+		</a>
+	</aside>
+
+	<section class="container">
+
+		<div class="panel panel-default">
+
+			<section class="panel-body">
+				<div class="clearfix">
+					<h1>Su búsqueda: "{{result}}"</h1>
+					<a href="{% url 'logout' %}">
+						<button id="logout_alt" type="button" class="btn btn-danger">Cerrar sesión</button>
+					</a>
+				</div>
+
+				<p></p>
+
+				<h2>Su búsqueda por el título del filme:</h2>
+				{% if movies_by_title|length > 0 %}
+					<div class="row">
+						{% for movie in movies_by_title %}
+							<div class="column">
+								<a href="{% url 'video' movie.id %}">
+									<img class="poster" src="{{movie.Poster.url}}" title="{{movie.Title}}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<h4>No arrojó resultados</h4>
+				{% endif %}
+
+				<p></p>
+				
+				<h2>Su búsqueda por el director del filme:</h2>
+				{% if movies_by_director|length > 0 %}
+					<div class="row">
+						{% for movie in movies_by_director %}
+							<div class="column">
+								<a href="{% url 'video' movie.id %}">
+									<img class="poster" src="{{movie.Poster.url}}" title="{{movie.Title}}">
+								</a>
+								<!--
+								<h6>Director: {{movie.Director}}</h6>
+								-->
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<h4>No arrojó resultados</h4>
+				{% endif %}
+				
+				<p></p>
+				
+				<h2>Su búsqueda por el año del filme:</h2>
+				{% if movies_by_year|length > 0 %}
+					<div class="row">
+						{% for movie in movies_by_year %}
+							<div class="column">
+								<a href="{% url 'video' movie.id %}">
+									<img class="poster" src="{{movie.Poster.url}}" title="{{movie.Title}}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<h4>No arrojó resultados</h4>
+				{% endif %}
+
+				<p></p>
+
+			</section>
+		</div>
+	</section>
+{% endblock %}
+
+
+
+

@@ -17,12 +17,8 @@ font-family: 'Roboto';
 	left: 50%;
 	height: 370px;
 	width: 400px;
-	margin-top: -9em; /*set to a negative number 1/2 of your height*/
-	margin-left: -15em; /*set to a negative number 1/2 of your width*/
-	/*
-	margin-top: auto;
-	margin-bottom: auto;
-	*/
+	margin-top: -9em; 
+	margin-left: -15em; 
 	background-color: rgba(0,0,0,0.8) !important;
 }
 

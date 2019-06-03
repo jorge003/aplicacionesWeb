@@ -9,36 +9,9 @@ height: 100%;
 font-family: 'Roboto';
 }
 
-/*
-* {
-	margin:0px;
-	padding:0px;
-}
-*/
-
-span#cerrar-sesion{
-	margin-top: 2%;
-	margin-left: 83%;
-	font-size: 60px;
-	color: black;
-	text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
-	position: fixed;
-}
-
-p.texto-cerrar{
-	font-size: large;
-	color: white;
-	margin-top: 0%;
-	margin-left: 90%;
-	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-.img-responsive {
-    margin: 0 auto;
-}
-
 h1{
 	color: white;
+	float:left;
 }
 
 h2{
@@ -46,72 +19,8 @@ h2{
 	text-align: center;
 }
 
-.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus {
-    border-color: #FFFFFF;
-    border-bottom-color: transparent;
-    background-color:rgba(0,0,0,0.8) !important;
-	color:#fcf8f8 !important;
-}
-
-form.container{
-	width: 300px;
-	padding-top: 5px;
-	padding-right: 5px;
-}
-
-/*
-header {
-	margin:auto;
-	width:auto;
-*/
-
-.nav-tabs {
-    border-bottom: 0px solid rgba(0,0,0,0.4);
-}
-
-}
-		
-ul, ol {
-	list-style:none;
-}
-		
-.nav > li {
-	float: left;
-}
-		
-.nav li a {
-	background-color:rgba(0,0,0,0.8);
-	color:#fcf8f8;
-	border-color: white;
-	text-decoration:none;
-	padding:10px 12px;
-	display:block;
-	margin-top: -30px;
-}
-		
-.nav li a:hover {
-	background-color:#434343;
-}
-	
-.nav li ul {
-	display:none;
-	/*
-	position:absolute;
-	*/
-	min-width:140px;
-}
-		
-.nav li:hover > ul {
-	display: inline-block;
-}
-		
-.nav li ul li {
-	position:relative;
-}
-		
-.nav li ul li ul {
-	right:-140px;
-	top:0px;
+h4{
+	color: white;
 }
 
 .column {
@@ -120,7 +29,6 @@ ul, ol {
   padding-bottom: 5px;
 }
 
-/* Clearfix (clear floats) */
 .row::after {
   content: "";
   clear: both;
@@ -128,11 +36,7 @@ ul, ol {
 }	
 
 div.panel-default{
-	margin-top: 5%;
-	/*
-	margin-left: 5%;
-	margin-right: 5%;
-	*/
+	margin-top: 10%;
 	padding-left: 12px;
 	padding-right: 5px;
 	position: static;
@@ -143,15 +47,25 @@ div.panel-default{
 	border-style: solid;
 	border-width: 1px;
 	border-color: white;
+	max-width:100%;
+    height:auto;
 }
 
-td{
-	background-color: white;
+#logout_alt{
+	visibility: hidden;
+	position: relative;
 }
 
-figure.panel-default{
-	margin-top: 2%;
-	width: 30%;
-	position: static;
-	background-color: rgba(0,0,0,0.8) !important;
+@media only screen and (max-width: 790px){
+
+	div.panel-default{
+		margin-top: 20%;
+	}
+
+	#logout_alt{
+		visibility: visible;
+		float: right; 
+		margin-top: 20px;
+		position: relative;
+	}
 }
