@@ -53,7 +53,8 @@ div.panel-default{
 	border-width: 1px;
 	border-color: white;
 	max-width:100%;
-    height:auto;
+	height:auto;
+	vertical-align: top;
 }
 
 span#volver{
